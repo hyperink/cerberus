@@ -1,0 +1,18 @@
+$def with (email, password, dlist)
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <form action="/check" method="GET" class="form-inline well">
+	<fieldset>
+	  <input type="hidden" name="email" value="$email" />
+	  <input type="hidden" name="password" value="$password" />
+	  <select id="selectbox" name="did">
+	    $for d in dlist:
+	        <option value="$d['id']">$d['title']</option>
+	  </select>
+	  <input type="submit" id="check_button" value="check" />
+	</fieldset>
+      </form>
+    </div>
+  </div>
+</div>
