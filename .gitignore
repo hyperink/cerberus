@@ -1,2 +1,5 @@
 *~
 *.pyc
+localconf.py\#*\#
+.*.sw[a-z]
+\#*

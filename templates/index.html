@@ -1,14 +1,39 @@
 $def with ()
-<div class="container">
-  <div class="row">
-    <div class="span12">
-      <form action="/list" method="POST" class="form-inline well">
-	<fieldset>
-	  <input type="text" name="email" placeholder="email" required />
-	  <input type="password" name="password" placeholder="password" required />
-	  <input type="submit" id="login_button" value="log in" />
-	</fieldset>
-      </form>
+
+  <div class='cover' id='ajaxloader'>
+    <div class='loaderGif'>Loading...</div>
+  </div>
+  <div class='cover' id='cover'>
+    <div class='loginBox'>
+      <div>Enter your @hyperinkpress.com credentials (for access to Google Docs).</div>
+      <input type='text' id='email' placeholder='@hyperinkpress.com' />
+      <input type='password' id='password' placeholder='Password' />
+      <div class='submitBtn' id='submitBtn'>Continue</div>
+      <div id='skiplogin'> Click here to SKIP login (no access to gdocs)</div>
     </div>
   </div>
-</div>
+  <div class='topBar'>
+    <div class='center'>
+      <h1>Plagiarism Detector</h1>
+      <div class='floatRight linkList' id='listTrigger'>List</div>
+      <input type="text" data-provide="typeahead" data-items="10" placeholder='Enter Google Doc Title' class='floatRight' id='search' data-source="[]">
+    </div>
+  </div>
+  <div class='center' id='scoreList'>
+  </div>
+  <div class='center' id='scoreContainer'>
+    <div class='scoreWrapper'>
+      <div class='score'>
+        <span id='score'></span>
+        <span class='small'>%</span>
+      </div>
+      <div class='heading'>Content lifted from</div>
+      <span id='urlsWrapper'>
+      </span>
+    </div>
+    <div class='scoreCard' id='scoreCard'>
+    </div>
+  </div>
+
+<script type='text/javascript' src='/static/js/pdetect.js'></script>
+</body>

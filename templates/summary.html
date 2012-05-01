@@ -1,0 +1,36 @@
+$def with(summary)
+
+<h2>Summary</h2>
+<p>Summary of all books sorted by plagiarism score <em>higher is worse</em></p>
+
+<table>
+  <thead>
+    <th>wpid</th>
+    <th>title</th>
+    <th>score</th>
+    <th>details</th>
+  </thead>
+  <tbody>
+    $for row in summary:
+      <tr style="padding: 5px; background-color: #fafafa;">
+	<td style="text-align: right;">$row['wpid']</td>
+	<td><a style="text-decoration: underline" href="http://www.hyperinkpress.com/$(row['slug'])/print-ebook.php?token=typosaurus">$row['title']<a/></td>
+	$if row['score']:
+	  $if row['score'] >= 0 and row['score'] < 0.001:
+	    <td style="color: #99ff99">$(row['score'] * 1000)</td>
+	  $if row['score'] >= 0.001 and row['score'] < 0.003:
+	    <td style="color: #66bb33">$(row['score'] * 1000)</td>
+	  $if row['score'] >= 0.003 and row['score'] < 0.006:
+	    <td style="color: #ff3300">$(row['score'] * 1000)</td>
+	  $if row['score'] >= 0.006 and row['score'] < 0.020:
+	    <td style="color: #ee3333">$(row['score'] * 1000)</td>
+	  $if row['score'] >= 0.020:
+	    <td style="color: #990000">$(row['score'] * 1000)</td>
+ 	$else:
+	  <td style="color: #999;">Unknown</td>
+	<td><a href="http://ec2dev.servehttp.com:7357/summary/$(row['wpid'])">data</a></td>
+      </tr>
+  </tbody>
+</table>
+
+
